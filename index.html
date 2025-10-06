@@ -373,6 +373,18 @@
             opacity: 1;
             transform: translateY(0);
         }
+		.client-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 25px;
+}
+.client-logo {
+  width: 150px;
+  height: 150px;
+  overflow: hidden;
+}
+
     </style>
 </head>
 <body>
@@ -535,7 +547,7 @@
                 <div class="col-lg-4 fade-in">
                     <div class="project-card card">
                         <div class="img-placeholder">
-                            <img src="images/gajah.jpg" class="w-100 " style="border-radius:25px" />
+                            <img src="images/FarmSense.png" class="w-100 " style="border-radius:25px" />
                         </div>
                         <div class="card-body">
                             <h4>FarmSense</h4>
@@ -547,7 +559,7 @@
                 <div class="col-lg-4 fade-in">
                     <div class="project-card card">
                         <div class="img-placeholder">
-                            <img src="images/dashboard-map.jpg" class="w-100 " style="border-radius:25px" />
+                            <img src="images/pistolgajah.png" class="w-100 " style="border-radius:25px" />
                         </div>
                         <div class="card-body">
                             <h4>PISTOL Gajah</h4>
@@ -603,80 +615,110 @@
 
     <!-- Clients & Partners Section -->
     <section class="py-5 bg-white">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title">Klien & Rakan Kongsi Kami</h2>
-                    <p class="lead">Dipercayai oleh organisasi terkemuka di Malaysia</p>
-                </div>
-            </div>
-            <div class="row g-4 align-items-center justify-content-center">
-                <div class="col-6 col-md-4 col-lg-3 fade-in">
-                    <div class="client-box p-4 text-center">
-                        <div class="client-logo mb-2">
-                            <i class="bi bi-shield-fill-check" style="font-size: 3rem; color: var(--primary);"></i>
-                        </div>
-                        <h5>RELA</h5>
-                        <p class="small text-muted">Keselamatan Komuniti</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 fade-in">
-                    <div class="client-box p-4 text-center">
-                        <div class="client-logo mb-2">
-                            <i class="bi bi-rocket-takeoff" style="font-size: 3rem; color: var(--secondary);"></i>
-                        </div>
-                        <h5>NASA DEF</h5>
-                        <p class="small text-muted">Teknologi & Inovasi</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 fade-in">
-                    <div class="client-box p-4 text-center">
-                        <div class="client-logo mb-2">
-                            <i class="bi bi-building" style="font-size: 3rem; color: var(--accent);"></i>
-                        </div>
-                        <h5>FELCRA</h5>
-                        <p class="small text-muted">Pembangunan Pertanian</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 fade-in">
-                    <div class="client-box p-4 text-center">
-                        <div class="client-logo mb-2">
-                            <i class="bi bi-gear-fill" style="font-size: 3rem; color: var(--primary);"></i>
-                        </div>
-                        <h5>MTDC</h5>
-                        <p class="small text-muted">Pembangunan Teknologi</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 fade-in">
-                    <div class="client-box p-4 text-center">
-                        <div class="client-logo mb-2">
-                            <i class="bi bi-briefcase-fill" style="font-size: 3rem; color: var(--secondary);"></i>
-                        </div>
-                        <h5>DNAZ</h5>
-                        <p class="small text-muted">Rakan Strategik</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 fade-in">
-                    <div class="client-box p-4 text-center">
-                        <div class="client-logo mb-2">
-                            <i class="bi bi-tree-fill" style="font-size: 3rem; color: #27ae60;"></i>
-                        </div>
-                        <h5>MOPGCF</h5>
-                        <p class="small text-muted">Kelapa Sawit & Komoditi</p>
-                    </div>
-                </div>
-                <div class="col-6 col-md-4 col-lg-3 fade-in">
-                    <div class="client-box p-4 text-center">
-                        <div class="client-logo mb-2">
-                            <i class="bi bi-droplet-fill" style="font-size: 3rem; color: var(--accent);"></i>
-                        </div>
-                        <h5>NWRC</h5>
-                        <p class="small text-muted">Pengurusan Sumber Air</p>
-                    </div>
-                </div>
-            </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center mb-5">
+        <h2 class="section-title">Klien & Rakan Kongsi Kami</h2>
+        <p class="lead">Dipercayai oleh organisasi terkemuka di Malaysia</p>
+      </div>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+      <!-- ITEM TEMPLATE -->
+      <div class="col-6 col-md-4 col-lg-3 fade-in">
+        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
+          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
+               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
+            <img src="images/rela-logo.png"
+                 alt="RELA Logo"
+                 style="max-width:100%; max-height:100%; object-fit:contain;">
+          </div>
+          <h5 class="mt-2 mb-1">RELA</h5>
+          <p class="small text-muted mb-0">Keselamatan Komuniti</p>
         </div>
-    </section>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3 fade-in">
+        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
+          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
+               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
+            <img src="images/LogoNasadef.png"
+                 alt="NASA DEF Logo"
+                 style="max-width:100%; max-height:100%; object-fit:contain;">
+          </div>
+          <h5 class="mt-2 mb-1">NASA DEF</h5>
+          <p class="small text-muted mb-0">Teknologi & Inovasi</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3 fade-in">
+        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
+          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
+               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
+            <img src="images/felcra.png"
+                 alt="FELCRA Logo"
+                 style="max-width:100%; max-height:100%; object-fit:contain;">
+          </div>
+          <h5 class="mt-2 mb-1">FELCRA</h5>
+          <p class="small text-muted mb-0">Pembangunan Pertanian</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3 fade-in">
+        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
+          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
+               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
+            <img src="images/MTDC.png"
+                 alt="MTDC Logo"
+                 style="max-width:100%; max-height:100%; object-fit:contain;">
+          </div>
+          <h5 class="mt-2 mb-1">MTDC</h5>
+          <p class="small text-muted mb-0">Pembangunan Teknologi</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3 fade-in">
+        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
+          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
+               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
+            <img src="images/dnaz.jpeg"
+                 alt="DNAZ Logo"
+                 style="max-width:100%; max-height:100%; object-fit:contain;">
+          </div>
+          <h5 class="mt-2 mb-1">DNAZ</h5>
+          <p class="small text-muted mb-0">Rakan Strategik</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3 fade-in">
+        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
+          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
+               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
+            <img src="images/mpogcf-logo.png"
+                 alt="MOPGCF Logo"
+                 style="max-width:100%; max-height:100%; object-fit:contain;">
+          </div>
+          <h5 class="mt-2 mb-1">MOPGCF</h5>
+          <p class="small text-muted mb-0">Kelapa Sawit & Komoditi</p>
+        </div>
+      </div>
+
+      <div class="col-6 col-md-4 col-lg-3 fade-in">
+        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
+          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
+               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
+            <img src="images/logo_perhilitan2.jpg"
+                 alt="Perhilitan Logo"
+                 style="max-width:100%; max-height:100%; object-fit:contain;">
+          </div>
+          <h5 class="mt-2 mb-1">NWRC</h5>
+          <p class="small text-muted mb-0">Perhilitan</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
     <!-- Contact Section -->
     <section id="contact">
