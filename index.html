@@ -4,877 +4,610 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Izwan Systec Enterprise - Innovating Technology Solutions</title>
+    <meta name="description" content="Izwan Systec Enterprise - penyelesaian IoT, AI, sistem maklumat, keselamatan ladang Farmguard, baik pulih website dan renovasi rumah.">
+    <meta name="theme-color" content="#0F2A44">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <style>
-        :root {
-            --primary: #2C3E50;
-            --secondary: #3498DB;
-            --accent: #E74C3C;
-            --light: #ECF0F1;
-            --dark: #1A252F;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            overflow-x: hidden;
-        }
-
-        /* Navbar Desktop */
-        .navbar-desktop {
-            background: linear-gradient(135deg, var(--primary), var(--dark));
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .navbar-desktop .nav-link {
-            color: white !important;
-            margin: 0 1rem;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-        .navbar-desktop .nav-link:hover {
-            color: var(--secondary) !important;
-            transform: translateY(-2px);
-        }
-
-        .navbar-desktop .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            width: 0;
-            height: 2px;
-            background: var(--secondary);
-            transition: all 0.3s;
-            transform: translateX(-50%);
-        }
-
-        .navbar-desktop .nav-link:hover::after {
-            width: 80%;
-        }
-
-        /* Sidebar Mobile */
-        .sidebar-mobile {
-            position: fixed;
-            left: -280px;
-            top: 0;
-            width: 280px;
-            height: 100vh;
-            background: linear-gradient(180deg, var(--primary), var(--dark));
-            z-index: 2000;
-            transition: left 0.3s ease;
-            box-shadow: 4px 0 10px rgba(0,0,0,0.3);
-        }
-
-        .sidebar-mobile.active {
-            left: 0;
-        }
-
-        .sidebar-header {
-            padding: 2rem 1.5rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .sidebar-menu {
-            padding: 1rem 0;
-        }
-
-        .sidebar-menu a {
-            display: block;
-            color: white;
-            padding: 1rem 1.5rem;
-            text-decoration: none;
-            transition: all 0.3s;
-            border-left: 3px solid transparent;
-        }
-
-        .sidebar-menu a:hover {
-            background: rgba(255,255,255,0.1);
-            border-left-color: var(--secondary);
-            padding-left: 2rem;
-        }
-
-        .menu-toggle {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            z-index: 2100;
-            background: var(--primary);
-            color: white;
-            border: none;
-            padding: 0.8rem 1rem;
-            border-radius: 8px;
-            cursor: pointer;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: all 0.3s;
-        }
-
-        .menu-toggle:hover {
-            background: var(--secondary);
-            transform: scale(1.05);
-        }
-
-        .overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 1500;
-            display: none;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .overlay.active {
-            display: block;
-            opacity: 1;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 150px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.1)" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
-            background-size: cover;
-            animation: wave 15s linear infinite;
-        }
-
-        @keyframes wave {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            animation: fadeInUp 1s;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            animation: fadeInUp 1s 0.3s both;
-        }
-
-        .hero .btn {
-            animation: fadeInUp 1s 0.6s both;
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Cards */
-        .service-card, .project-card {
-            border: none;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: all 0.4s;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            height: 100%;
-        }
-
-        .service-card:hover, .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-
-        .service-card .card-body, .project-card .card-body {
-            padding: 2rem;
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            color: var(--secondary);
-            margin-bottom: 1rem;
-            display: inline-block;
-            transition: all 0.3s;
-        }
-
-        .service-card:hover .service-icon {
-            transform: scale(1.2) rotate(5deg);
-        }
-
-        /* Section Styling */
-        section {
-            padding: 80px 0;
-            scroll-margin-top: 80px;
-        }
-
-        section:nth-child(even) {
-            background: var(--light);
-        }
-
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 3rem;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60%;
-            height: 4px;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            border-radius: 2px;
-        }
-
-        /* Buttons */
-        .btn-primary {
-            background: var(--secondary);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 25px;
-            transition: all 0.3s;
-        }
-
-        .btn-primary:hover {
-            background: var(--accent);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-
-        /* Scroll Buttons */
-        .scroll-btn {
-            position: fixed;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: var(--secondary);
-            color: white;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
-        .scroll-btn:hover {
-            background: var(--accent);
-            transform: scale(1.1);
-        }
-
-        .scroll-up {
-            bottom: 30px;
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .scroll-up.show {
-            opacity: 1;
-            pointer-events: auto;
-        }
-
-        .scroll-down {
-            bottom: 90px;
-        }
-
-        /* Image Placeholder */
-        .img-placeholder {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-            min-height: 250px;
-            border-radius: 10px;
-        }
-
-        /* Client Box */
-        .client-box {
-            background: white;
-            border-radius: 12px;
-            transition: all 0.3s;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-            height: 100%;
-        }
-
-        .client-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--dark);
-            color: white;
-            padding: 3rem 0 1rem;
-        }
-
-        /* Responsive */
-        @media (min-width: 992px) {
-            .menu-toggle { display: none; }
-            .sidebar-mobile { display: none; }
-        }
-
-        @media (max-width: 991px) {
-            .navbar-desktop { display: none; }
-            .hero { padding-top: 100px; }
-            .hero h1 { font-size: 2.5rem; }
-        }
-
-        @media (max-width: 576px) {
-            .hero h1 { font-size: 2rem; }
-            .section-title { font-size: 2rem; }
-        }
-
-        /* Animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-		.client-logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 25px;
-}
-.client-logo {
-  width: 150px;
-  height: 150px;
-  overflow: hidden;
-}
-
-    </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Menu Toggle Button (Mobile) -->
-    <button class="menu-toggle" onclick="toggleSidebar()">
-        <i class="bi bi-list fs-4"></i>
-    </button>
 
-    <!-- Sidebar Mobile -->
-    <div class="sidebar-mobile" id="sidebar">
+    <!-- ================= Navbar ================= -->
+    <header class="site-nav" id="siteNav">
+        <div class="container">
+            <a class="brand" href="#home">
+                <span class="brand-mark"><i class="bi bi-cpu"></i></span>
+                Izwan Systec
+            </a>
+            <nav aria-label="Navigasi utama">
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#projects">Produk</a></li>
+                    <li><a href="#services">Servis</a></li>
+                    <li><a href="#solutions">Solusi</a></li>
+                    <li><a href="#contact">Hubungi</a></li>
+                </ul>
+            </nav>
+            <button class="menu-toggle" id="menuToggle" aria-label="Buka menu" aria-controls="sidebar">
+                <i class="bi bi-list"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ================= Sidebar Mobile ================= -->
+    <aside class="sidebar-mobile" id="sidebar" aria-hidden="true">
         <div class="sidebar-header">
-            <h4 class="text-white mb-0">Izwan Systec</h4>
+            <h5 class="text-white mb-0 fw-bold">Izwan Systec</h5>
+            <button class="sidebar-close" id="sidebarClose" aria-label="Tutup menu">&times;</button>
         </div>
-        <div class="sidebar-menu">
-            <a href="#home" onclick="closeSidebar()"><i class="bi bi-house me-2"></i> Home</a>
-            <a href="#about" onclick="closeSidebar()"><i class="bi bi-info-circle me-2"></i> Tentang Kami</a>
-            <a href="#projects" onclick="closeSidebar()"><i class="bi bi-briefcase me-2"></i> Projek</a>
-            <a href="#solutions" onclick="closeSidebar()"><i class="bi bi-gear me-2"></i> Solusi</a>
-            <a href="#contact" onclick="closeSidebar()"><i class="bi bi-envelope me-2"></i> Hubungi</a>
-        </div>
-    </div>
-    <div class="overlay" id="overlay" onclick="closeSidebar()"></div>
+        <nav class="sidebar-menu">
+            <a href="#home"><i class="bi bi-house me-2"></i> Home</a>
+            <a href="#about"><i class="bi bi-info-circle me-2"></i> Tentang Kami</a>
+            <a href="#projects"><i class="bi bi-box-seam me-2"></i> Produk</a>
+            <a href="#services"><i class="bi bi-tools me-2"></i> Servis</a>
+            <a href="#solutions"><i class="bi bi-gear me-2"></i> Solusi</a>
+            <a href="#contact"><i class="bi bi-envelope me-2"></i> Hubungi</a>
+        </nav>
+    </aside>
+    <div class="overlay" id="overlay"></div>
 
-    <!-- Navbar Desktop -->
-    <nav class="navbar navbar-desktop navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand text-white fw-bold fs-4" href="#home">Izwan Systec</a>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="#about">Tentang Kami</a></li>
-                <li class="nav-item"><a class="nav-link" href="#projects">Projek</a></li>
-                <li class="nav-item"><a class="nav-link" href="#solutions">Solusi</a></li>
-                <li class="nav-item"><a class="nav-link" href="#contact">Hubungi</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <h1>Innovating Technology for Crisis, Retail & Agriculture</h1>
-                    <p>Penyelesaian pintar dalam Sistem Maklumat, Digital Retail, dan IoT Pertanian</p>
-                    <button class="btn btn-light btn-lg" onclick="scrollToNext()">
-                        Learn More <i class="bi bi-arrow-down ms-2"></i>
-                    </button>
-                </div>
-                <div class="col-lg-6 mt-4 mt-lg-0">
-                    <div class="img-placeholder">
-                        <img src="images/cpu.jpeg" class="w-100" style="border-radius:25px" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3 Bidang Utama -->
-    <section class="py-5 bg-white">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4 fade-in">
-                    <div class="service-card card text-center">
-                        <div class="card-body">
-                            <i class="bi bi-display service-icon"></i>
-							<div class="img-placeholder mb-4">
-                        <img src="images/dashboard.jpg" class="w-100 " style="border-radius:25px" />
-                    </div>
-                            <h4>Sistem Maklumat</h4>
-                            <p>ROAMS - Dashboard pengurusan untuk RELA dengan teknologi terkini</p>
+    <main>
+        <!-- ================= Hero ================= -->
+        <section id="home" class="hero">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <h1>Innovating Technology for <span class="highlight">Crisis, Retail &amp; Agriculture</span></h1>
+                        <p class="lead">Penyelesaian pintar dalam Sistem Maklumat, Digital Retail, IoT Pertanian, keselamatan ladang dan servis teknikal untuk rumah &amp; perniagaan anda.</p>
+                        <div class="hero-actions">
+                            <a href="#projects" class="btn-brand">Lihat Produk <i class="bi bi-arrow-right"></i></a>
+                            <a href="#contact" class="btn-ghost">Hubungi Kami</a>
+                        </div>
+                        <div class="hero-stats">
+                            <div><strong>2021</strong><span>Ditubuhkan</span></div>
+                            <div><strong>7+</strong><span>Klien &amp; Rakan</span></div>
+                            <div><strong>6+</strong><span>Produk &amp; Sistem</span></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-4 fade-in">
-                    <div class="service-card card text-center">
-                        <div class="card-body">
-                            <i class="bi bi-droplet service-icon"></i>
-							<div class="img-placeholder mb-4">
-                        <img src="images/chemical.jpg" class="w-100 " style="border-radius:25px" />
-                    </div>
-                            <h4>Pembekalan Chemical Wangian</h4>
-                            <p>Pengedaran dan pembekalan chemical wangian berkualiti tinggi</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4 fade-in">
-                    <div class="service-card card text-center">
-                        <div class="card-body">
-                            <i class="bi bi-tree service-icon"></i>
-							<div class="img-placeholder mb-4">
-                        <img src="images/iot-pertanian.jpg" class="w-100 " style="border-radius:25px" />
-                    </div>
-                            <h4>IoT & Pertanian Pintar</h4>
-                            <p>FarmSense - Sensor IoT untuk pertanian moden dan efisien</p>
+                    <div class="col-lg-6">
+                        <div class="hero-visual">
+                            <img src="images/iot-pertanian.jpg" alt="Teknologi IoT untuk pertanian pintar">
+                            <div class="hero-badge"><i class="bi bi-broadcast"></i> IoT · AI · Solar</div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+            <svg class="hero-wave" viewBox="0 0 2880 120" preserveAspectRatio="none" aria-hidden="true">
+                <path d="M0,60 C240,120 480,0 720,60 C960,120 1200,0 1440,60 C1680,120 1920,0 2160,60 C2400,120 2640,0 2880,60 L2880,120 L0,120 Z"></path>
+            </svg>
+        </section>
 
-    <!-- About Section -->
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center mb-5">
+        <!-- ================= 3 Bidang Utama ================= -->
+        <section class="focus" aria-label="Bidang utama">
+            <div class="container">
+                <div class="row g-4">
+                    <div class="col-md-4 fade-in">
+                        <div class="card-x">
+                            <div class="card-media">
+                                <img src="images/dashboard.jpg" alt="Dashboard sistem maklumat" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div class="icon-pill"><i class="bi bi-display"></i></div>
+                                <h4>Sistem Maklumat</h4>
+                                <p>ROAMS - Dashboard pengurusan untuk RELA dengan teknologi terkini.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 fade-in">
+                        <div class="card-x">
+                            <div class="card-media">
+                                <img src="images/chemical.jpg" alt="Chemical wangian" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div class="icon-pill"><i class="bi bi-droplet"></i></div>
+                                <h4>Pembekalan Chemical Wangian</h4>
+                                <p>Pengedaran dan pembekalan chemical wangian berkualiti tinggi.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 fade-in">
+                        <div class="card-x">
+                            <div class="card-media">
+                                <img src="images/Produk/farmguard-mini.jpg" alt="Farmguard Mini di ladang" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div class="icon-pill"><i class="bi bi-tree"></i></div>
+                                <h4>IoT &amp; Pertanian Pintar</h4>
+                                <p>FarmSense &amp; Farmguard - Sensor IoT dan sistem keselamatan ladang berkuasa solar.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= About ================= -->
+        <section id="about" class="bg-soft">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Siapa Kami</span>
                     <h2 class="section-title">Tentang Kami</h2>
                 </div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6 fade-in">
-                    <div class="img-placeholder mb-4 h-50">
-                        <img src="images/corporate-building.jpg" class="w-100 " style="border-radius:25px" />
-                    </div>
-                </div>
-                <div class="col-lg-6 fade-in">
-                    <h3 class="mb-4">Izwan Systec Enterprise</h3>
-                    <p class="lead">Ditubuhkan pada 2021, Izwan Systec Enterprise adalah syarikat R&D dan inovasi teknologi yang menjadi pelopor dalam penyelesaian AI dan IoT. Kami membangunkan teknologi yang bukan sahaja inovatif, tetapi juga praktikal untuk menyelesaikan cabaran sebenar industri.</p>
-                    <p>Dengan pengalaman lebih 3 tahun dalam pembangunan sistem kompleks, kami telah berjaya membantu pelbagai organisasi meningkatkan kecekapan operasi mereka melalui automasi pintar dan sistem pemantauan real-time.</p>
-                    <div class="mt-4">
-                        <h5><i class="bi bi-bullseye text-primary me-2"></i> Misi</h5>
-                        <p>Menyediakan penyelesaian teknologi inovatif yang meningkatkan kecekapan operasi, keselamatan, dan produktiviti untuk industri pertanian, keselamatan, dan pengurusan krisis</p>
-                        
-                        <h5 class="mt-3"><i class="bi bi-eye text-primary me-2"></i> Visi</h5>
-                        <p>Menjadi pemangkin inovasi teknologi yang dipercayai dalam mencipta penyelesaian IoT dan AI untuk kesejahteraan masyarakat</p>
-                        
-                        <h5 class="mt-3"><i class="bi bi-star text-primary me-2"></i> Nilai Utama</h5>
-                        <ul class="list-unstyled">
-                            <li><i class="bi bi-check-circle text-success me-2"></i> Inovasi Berterusan</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i> Kebolehpercayaan Tinggi</li>
-                            <li><i class="bi bi-check-circle text-success me-2"></i> Impak Positif Kepada Masyarakat</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">farm sense nasadef
-                    <h2 class="section-title">Projek & Pencapaian</h2>
-                </div>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 fade-in">
-                    <div class="project-card card">
-                        <div class="img-placeholder">
-                            <img src="images/dashboard-map.jpg" class="w-100 " style="border-radius:25px" />
-                        </div>
-                        <div class="card-body">
-                            <h4>ROAMS</h4>
-                            <p>Sistem pengurusan operasi RELA yang komprehensif dengan dashboard real-time, memudahkan pemantauan dan koordinasi aktiviti keselamatan komuniti di seluruh negara. Sistem ini telah membantu meningkatkan kecekapan operasi sebanyak 40%.</p>
-                            <button class="btn btn-primary" onclick="alert('ROAMS: Dashboard analitik yang memberikan insight mendalam untuk membuat keputusan strategik')">Read More</button>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 fade-in">
+                        <div class="about-img">
+                            <img src="images/corporate-building.jpg" alt="Izwan Systec Enterprise" loading="lazy">
+                            <div class="exp-badge"><strong>3+</strong><span>Tahun Pengalaman</span></div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-4 fade-in">
-                    <div class="project-card card">
-                        <div class="img-placeholder">
-                            <img src="images/FarmSense.png" class="w-100 " style="border-radius:25px" />
-                        </div>
-                        <div class="card-body">
-                            <h4>FarmSense</h4>
-                            <p>Sistem IoT sensor pertanian pintar yang membantu petani memantau keadaan ladang 24/7. Dengan teknologi ini, petani dapat menjimatkan masa dan kos operasi sambil meningkatkan hasil tanaman melalui data-driven farming.</p>
-                            <button class="btn btn-primary" onclick="alert('FarmSense: Pemantauan suhu, kelembapan, dan keadaan tanah secara real-time')">Read More</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 fade-in">
-                    <div class="project-card card">
-                        <div class="img-placeholder">
-                            <img src="images/pistolgajah.png" class="w-100 " style="border-radius:25px" />
-                        </div>
-                        <div class="card-body">
-                            <h4>PISTOL Gajah</h4>
-                            <p>Peranti perlindungan kecemasan inovatif yang mengeluarkan bunyi kuat untuk menghalau gajah liar. Bentuk ergonomik, mudah dibawa, memberikan ketenangan fikiran kepada petani dan peladang di kawasan berisiko konflik manusia-gajah.</p>
-                            <button class="btn btn-primary" onclick="alert('PISTOL Gajah: Penyelesaian keselamatan yang berkesan dan mesra alam untuk perlindungan komuniti')">Read More</button>
+                    <div class="col-lg-6 fade-in">
+                        <h3 class="fw-bold mb-3" style="color:var(--primary)">Izwan Systec Enterprise</h3>
+                        <p class="lead">Ditubuhkan pada 2021, Izwan Systec Enterprise adalah syarikat R&amp;D dan inovasi teknologi yang menjadi pelopor dalam penyelesaian AI dan IoT. Kami membangunkan teknologi yang bukan sahaja inovatif, tetapi juga praktikal untuk menyelesaikan cabaran sebenar industri.</p>
+                        <p class="text-muted">Dengan pengalaman lebih 3 tahun dalam pembangunan sistem kompleks, kami telah berjaya membantu pelbagai organisasi meningkatkan kecekapan operasi mereka melalui automasi pintar dan sistem pemantauan real-time.</p>
+                        <div class="row g-3 mt-2">
+                            <div class="col-sm-6">
+                                <div class="value-box">
+                                    <h5><i class="bi bi-bullseye"></i>Misi</h5>
+                                    <p>Menyediakan penyelesaian teknologi inovatif yang meningkatkan kecekapan operasi, keselamatan, dan produktiviti untuk industri pertanian, keselamatan, dan pengurusan krisis.</p>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="value-box">
+                                    <h5><i class="bi bi-eye"></i>Visi</h5>
+                                    <p>Menjadi pemangkin inovasi teknologi yang dipercayai dalam mencipta penyelesaian IoT dan AI untuk kesejahteraan masyarakat.</p>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="value-box">
+                                    <h5><i class="bi bi-star"></i>Nilai Utama</h5>
+                                    <ul class="feature-list mb-0 d-flex flex-wrap gap-3">
+                                        <li><i class="bi bi-check-circle-fill"></i> Inovasi Berterusan</li>
+                                        <li><i class="bi bi-check-circle-fill"></i> Kebolehpercayaan Tinggi</li>
+                                        <li><i class="bi bi-check-circle-fill"></i> Impak Positif Kepada Masyarakat</li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Solutions Section -->
-    <section id="solutions">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
-                    <h2 class="section-title">Kekuatan & Solusi</h2>
+        <!-- ================= Produk & Projek ================= -->
+        <section id="projects">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Produk &amp; Projek</span>
+                    <h2 class="section-title">Produk &amp; Pencapaian</h2>
+                    <p>Dari sistem keselamatan ladang berkuasa solar hingga dashboard pengurusan operasi berskala nasional.</p>
+                </div>
+                <div class="row g-4">
+                    <!-- Farmguard Basic -->
+                    <div class="col-md-6 col-lg-4 fade-in">
+                        <div class="card-x">
+                            <div class="card-media contain">
+                                <span class="tag">Keselamatan Ladang</span>
+                                <img src="images/Produk/farmguard-basic.jpg" alt="Farmguard Basic" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <h4>Farmguard Basic</h4>
+                                <p>Sistem pengawasan ladang lengkap berkuasa solar dengan kamera PTZ, sensor gerakan dan 4 siren amaran untuk menghalau haiwan liar dan penceroboh.</p>
+                                <ul class="feature-list">
+                                    <li><i class="bi bi-check2"></i> Panel solar &amp; bateri terbina</li>
+                                    <li><i class="bi bi-check2"></i> Kamera PTZ WiFi + PIR sensor</li>
+                                    <li><i class="bi bi-check2"></i> 4 siren berkuasa tinggi</li>
+                                </ul>
+                                <div class="card-footer-x">
+                                    <button class="btn-brand btn-sm-brand border-0" data-title="Farmguard Basic" data-img="images/Produk/farmguard-basic.jpg" data-detail="Farmguard Basic menggabungkan panel solar, kotak kawalan kalis cuaca, kamera PTZ WiFi, sensor gerakan PIR dan 4 siren amaran. Apabila gerakan dikesan, siren berbunyi dan rakaman dihantar terus ke telefon anda - sesuai untuk ladang, kebun dan kawasan berisiko konflik haiwan liar.">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Farmguard Mini -->
+                    <div class="col-md-6 col-lg-4 fade-in">
+                        <div class="card-x">
+                            <div class="card-media">
+                                <span class="tag">Keselamatan Ladang</span>
+                                <img src="images/Produk/farmguard-mini.jpg" alt="Farmguard Mini" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <h4>Farmguard Mini</h4>
+                                <p>Versi padat dan mampu milik dengan lampu strobe, 2 siren dan sensor gerakan - pemasangan mudah di mana-mana kawasan ladang.</p>
+                                <ul class="feature-list">
+                                    <li><i class="bi bi-check2"></i> Berkuasa solar sepenuhnya</li>
+                                    <li><i class="bi bi-check2"></i> Lampu strobe biru amaran</li>
+                                    <li><i class="bi bi-check2"></i> 2 siren + sensor gerakan</li>
+                                </ul>
+                                <div class="card-footer-x">
+                                    <button class="btn-brand btn-sm-brand border-0" data-title="Farmguard Mini" data-img="images/Produk/farmguard-mini.jpg" data-detail="Farmguard Mini direka untuk pekebun kecil: unit solar padat dengan lampu strobe, 2 siren dan sensor gerakan. Tiada pendawaian elektrik diperlukan - pasang pada tiang dan ia sedia beroperasi siang dan malam.">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Farmguard CCTV -->
+                    <div class="col-md-6 col-lg-4 fade-in">
+                        <div class="card-x">
+                            <div class="card-media">
+                                <span class="tag tag-new">Baru</span>
+                                <img src="images/Produk/farmguard-cctv.jpg" alt="Farmguard CCTV" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <h4>Farmguard CCTV</h4>
+                                <p>Kamera pemantauan solar dua lensa untuk kawasan terpencil tanpa bekalan elektrik - pantau ladang anda dari telefon, 24/7.</p>
+                                <ul class="feature-list">
+                                    <li><i class="bi bi-check2"></i> Kamera dwi-lensa PTZ</li>
+                                    <li><i class="bi bi-check2"></i> Solar + kotak kalis cuaca</li>
+                                    <li><i class="bi bi-check2"></i> Paparan langsung melalui app</li>
+                                </ul>
+                                <div class="card-footer-x">
+                                    <button class="btn-brand btn-sm-brand border-0" data-title="Farmguard CCTV" data-img="images/Produk/farmguard-cctv.jpg" data-detail="Farmguard CCTV ialah stesen kamera berkuasa solar dengan kamera dwi-lensa PTZ dan kotak kawalan berkunci. Sesuai untuk ladang sawit, kebun dan tapak projek yang jauh dari bekalan elektrik - rakaman dan paparan langsung terus ke telefon anda.">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ROAMS -->
+                    <div class="col-md-6 col-lg-4 fade-in">
+                        <div class="card-x">
+                            <div class="card-media">
+                                <span class="tag">Sistem Maklumat</span>
+                                <img src="images/dashboard-map.jpg" alt="ROAMS dashboard" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <h4>ROAMS</h4>
+                                <p>Sistem pengurusan operasi RELA yang komprehensif dengan dashboard real-time, memudahkan pemantauan dan koordinasi aktiviti keselamatan komuniti di seluruh negara.</p>
+                                <div class="card-footer-x">
+                                    <button class="btn-brand btn-sm-brand border-0" data-title="ROAMS" data-img="images/dashboard-map.jpg" data-detail="ROAMS: Dashboard analitik yang memberikan insight mendalam untuk membuat keputusan strategik. Sistem ini telah membantu meningkatkan kecekapan operasi sebanyak 40%.">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FarmSense -->
+                    <div class="col-md-6 col-lg-4 fade-in">
+                        <div class="card-x">
+                            <div class="card-media contain">
+                                <span class="tag">IoT Pertanian</span>
+                                <img src="images/Produk/farmsense.jpg" alt="FarmSense" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <h4>FarmSense</h4>
+                                <p>Sistem IoT sensor pertanian pintar yang membantu petani memantau keadaan ladang 24/7 - jimat masa dan kos sambil meningkatkan hasil melalui data-driven farming.</p>
+                                <div class="card-footer-x">
+                                    <button class="btn-brand btn-sm-brand border-0" data-title="FarmSense" data-img="images/Produk/farmsense.jpg" data-detail="FarmSense: Pemantauan suhu, kelembapan, dan keadaan tanah secara real-time terus dari telefon pintar anda.">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- PISTOL Gajah -->
+                    <div class="col-md-6 col-lg-4 fade-in">
+                        <div class="card-x">
+                            <div class="card-media contain">
+                                <span class="tag">Keselamatan</span>
+                                <img src="images/Produk/pistol-gajah.jpg" alt="PISTOL Gajah" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <h4>PISTOL Gajah</h4>
+                                <p>Peranti perlindungan kecemasan yang mengeluarkan bunyi kuat untuk menghalau gajah liar. Ergonomik, mudah dibawa dan mesra alam.</p>
+                                <div class="card-footer-x">
+                                    <button class="btn-brand btn-sm-brand border-0" data-title="PISTOL Gajah" data-img="images/Produk/pistol-gajah.jpg" data-detail="PISTOL Gajah: Penyelesaian keselamatan yang berkesan dan mesra alam untuk perlindungan komuniti, petani dan peladang di kawasan berisiko konflik manusia-gajah.">Read More</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row g-4">
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div class="text-center p-4">
-                        <i class="bi bi-broadcast service-icon"></i>
-                        <h5 class="mt-3">IoT Development</h5>
-                        <p>Pembangunan sensor dan peranti IoT custom untuk industri pertanian dan keselamatan dengan teknologi terkini</p>
-                    </div>
+        </section>
+
+        <!-- ================= Servis ================= -->
+        <section id="services" class="bg-soft">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Servis Kami</span>
+                    <h2 class="section-title">Servis Profesional</h2>
+                    <p>Selain produk teknologi, kami juga menyediakan servis untuk perniagaan dan kediaman anda.</p>
                 </div>
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div class="text-center p-4">
-                        <i class="bi bi-laptop service-icon"></i>
-                        <h5 class="mt-3">Dashboard & Web App</h5>
-                        <p>Sistem pengurusan data real-time dan aplikasi web yang powerful untuk keputusan strategik</p>
+                <div class="row g-4">
+                    <div class="col-12 fade-in">
+                        <div class="service-wide">
+                            <div class="media">
+                                <img src="images/Servis/web-repair.jpg" alt="Servis baik pulih website" loading="lazy">
+                            </div>
+                            <div class="content">
+                                <div class="icon-pill"><i class="bi bi-globe2"></i></div>
+                                <h4>We Repair All Broken Websites</h4>
+                                <p>Website rosak, lambat, kena hack atau paparan bersepah di telefon? Kami baiki semuanya - WordPress, PHP, HTML atau sistem custom.</p>
+                                <ul class="feature-list">
+                                    <li><i class="bi bi-check2"></i> Baiki error, bug &amp; layout rosak</li>
+                                    <li><i class="bi bi-check2"></i> Buang malware &amp; tingkatkan keselamatan</li>
+                                    <li><i class="bi bi-check2"></i> Optimasi kelajuan &amp; mobile-friendly</li>
+                                    <li><i class="bi bi-check2"></i> Hosting, domain &amp; SSL</li>
+                                </ul>
+                                <div class="card-footer-x">
+                                    <button class="btn-brand btn-sm-brand border-0" data-title="Servis Baik Pulih Website" data-img="images/Servis/web-repair.jpg" data-detail="We repair all broken websites! Hantarkan pautan website anda dan terangkan masalahnya - kami akan buat diagnosis percuma dan berikan sebut harga sebelum kerja dimulakan.">Dapatkan Sebut Harga</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div class="text-center p-4">
-                        <i class="bi bi-droplet-fill service-icon"></i>
-                        <h5 class="mt-3">Chemical Wangian</h5>
-                        <p>Pembekalan dan pengedaran chemical wangian berkualiti premium untuk pelbagai keperluan industri</p>
-                    </div>
-                </div>
-                <div class="col-md-6 col-lg-3 fade-in">
-                    <div class="text-center p-4">
-                        <i class="bi bi-shield-check service-icon"></i>
-                        <h5 class="mt-3">Safety Solutions</h5>
-                        <p>Produk keselamatan inovatif seperti PISTOL Gajah untuk perlindungan komuniti dan petani</p>
+                    <div class="col-12 fade-in">
+                        <div class="service-wide">
+                            <div class="media">
+                                <img src="images/Servis/renovasi-rumah.jpg" alt="Servis renovasi rumah" loading="lazy">
+                            </div>
+                            <div class="content">
+                                <div class="icon-pill"><i class="bi bi-house-gear"></i></div>
+                                <h4>Renovasi Rumah &amp; Smart Home</h4>
+                                <p>Ubah suai rumah idaman anda - dapur, bilik air, siling, pendawaian - lengkap dengan pemasangan CCTV dan sistem smart home.</p>
+                                <ul class="feature-list">
+                                    <li><i class="bi bi-check2"></i> Kabinet dapur &amp; bilik air</li>
+                                    <li><i class="bi bi-check2"></i> Plaster siling, cat &amp; lantai</li>
+                                    <li><i class="bi bi-check2"></i> Pendawaian &amp; lampu</li>
+                                    <li><i class="bi bi-check2"></i> CCTV, smart lock &amp; smart home</li>
+                                </ul>
+                                <div class="card-footer-x">
+                                    <button class="btn-brand btn-sm-brand border-0" data-title="Servis Renovasi Rumah" data-img="images/Servis/renovasi-rumah.jpg" data-detail="Dari kerja kecil hingga ubah suai penuh - kami uruskan reka bentuk, bahan dan pemasangan. Lawatan tapak dan sebut harga percuma di kawasan Kelantan dan Lembah Klang.">Dapatkan Sebut Harga</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Clients & Partners Section -->
-    <section class="py-5 bg-white">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center mb-5">
-        <h2 class="section-title">Klien & Rakan Kongsi Kami</h2>
-        <p class="lead">Dipercayai oleh organisasi terkemuka di Malaysia</p>
-      </div>
-    </div>
+        <!-- ================= Solutions ================= -->
+        <section id="solutions">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Kepakaran</span>
+                    <h2 class="section-title">Kekuatan &amp; Solusi</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3 fade-in">
+                        <div class="solution">
+                            <div class="icon-pill"><i class="bi bi-broadcast"></i></div>
+                            <h5>IoT Development</h5>
+                            <p>Pembangunan sensor dan peranti IoT custom untuk industri pertanian dan keselamatan.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 fade-in">
+                        <div class="solution">
+                            <div class="icon-pill"><i class="bi bi-laptop"></i></div>
+                            <h5>Dashboard &amp; Web App</h5>
+                            <p>Sistem pengurusan data real-time dan aplikasi web untuk keputusan strategik.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 fade-in">
+                        <div class="solution">
+                            <div class="icon-pill"><i class="bi bi-droplet-fill"></i></div>
+                            <h5>Chemical Wangian</h5>
+                            <p>Pembekalan dan pengedaran chemical wangian premium untuk pelbagai keperluan industri.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 fade-in">
+                        <div class="solution">
+                            <div class="icon-pill"><i class="bi bi-shield-check"></i></div>
+                            <h5>Safety Solutions</h5>
+                            <p>Produk keselamatan seperti Farmguard dan PISTOL Gajah untuk perlindungan komuniti dan petani.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="row g-4 justify-content-center">
-      <!-- ITEM TEMPLATE -->
-      <div class="col-6 col-md-4 col-lg-3 fade-in">
-        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
-          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
-               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
-            <img src="images/rela-logo.png"
-                 alt="RELA Logo"
-                 style="max-width:100%; max-height:100%; object-fit:contain;">
-          </div>
-          <h5 class="mt-2 mb-1">RELA</h5>
-          <p class="small text-muted mb-0">Keselamatan Komuniti</p>
-        </div>
-      </div>
+        <!-- ================= Clients ================= -->
+        <section id="clients" class="bg-soft">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Dipercayai</span>
+                    <h2 class="section-title">Klien &amp; Rakan Kongsi Kami</h2>
+                    <p>Dipercayai oleh organisasi terkemuka di Malaysia.</p>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-6 col-md-4 col-lg-3 fade-in">
+                        <div class="client-box">
+                            <div class="client-logo"><img src="images/Logo/rela.png" alt="Logo RELA" loading="lazy"></div>
+                            <h5>RELA</h5>
+                            <p>Keselamatan Komuniti</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 fade-in">
+                        <div class="client-box">
+                            <div class="client-logo"><img src="images/Logo/nasadef.png" alt="Logo NASA DEF" loading="lazy"></div>
+                            <h5>NASA DEF</h5>
+                            <p>Teknologi &amp; Inovasi</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 fade-in">
+                        <div class="client-box">
+                            <div class="client-logo"><img src="images/Logo/felcra.png" alt="Logo FELCRA" loading="lazy"></div>
+                            <h5>FELCRA</h5>
+                            <p>Pembangunan Pertanian</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 fade-in">
+                        <div class="client-box">
+                            <div class="client-logo"><img src="images/Logo/mtdc.png" alt="Logo MTDC" loading="lazy"></div>
+                            <h5>MTDC</h5>
+                            <p>Pembangunan Teknologi</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 fade-in">
+                        <div class="client-box">
+                            <div class="client-logo"><img src="images/Logo/dnaz.jpeg" alt="Logo DNAZ" loading="lazy"></div>
+                            <h5>DNAZ</h5>
+                            <p>Rakan Strategik</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 fade-in">
+                        <div class="client-box">
+                            <div class="client-logo"><img src="images/Logo/mpogcf.png" alt="Logo MPOGCF" loading="lazy"></div>
+                            <h5>MPOGCF</h5>
+                            <p>Kelapa Sawit &amp; Komoditi</p>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-4 col-lg-3 fade-in">
+                        <div class="client-box">
+                            <div class="client-logo"><img src="images/Logo/perhilitan.jpg" alt="Logo PERHILITAN" loading="lazy"></div>
+                            <h5>NWRC</h5>
+                            <p>Perhilitan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="col-6 col-md-4 col-lg-3 fade-in">
-        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
-          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
-               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
-            <img src="images/LogoNasadef.png"
-                 alt="NASA DEF Logo"
-                 style="max-width:100%; max-height:100%; object-fit:contain;">
-          </div>
-          <h5 class="mt-2 mb-1">NASA DEF</h5>
-          <p class="small text-muted mb-0">Teknologi & Inovasi</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 fade-in">
-        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
-          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
-               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
-            <img src="images/felcra.png"
-                 alt="FELCRA Logo"
-                 style="max-width:100%; max-height:100%; object-fit:contain;">
-          </div>
-          <h5 class="mt-2 mb-1">FELCRA</h5>
-          <p class="small text-muted mb-0">Pembangunan Pertanian</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 fade-in">
-        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
-          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
-               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
-            <img src="images/MTDC.png"
-                 alt="MTDC Logo"
-                 style="max-width:100%; max-height:100%; object-fit:contain;">
-          </div>
-          <h5 class="mt-2 mb-1">MTDC</h5>
-          <p class="small text-muted mb-0">Pembangunan Teknologi</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 fade-in">
-        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
-          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
-               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
-            <img src="images/dnaz.jpeg"
-                 alt="DNAZ Logo"
-                 style="max-width:100%; max-height:100%; object-fit:contain;">
-          </div>
-          <h5 class="mt-2 mb-1">DNAZ</h5>
-          <p class="small text-muted mb-0">Rakan Strategik</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 fade-in">
-        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
-          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
-               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
-            <img src="images/mpogcf-logo.png"
-                 alt="MOPGCF Logo"
-                 style="max-width:100%; max-height:100%; object-fit:contain;">
-          </div>
-          <h5 class="mt-2 mb-1">MOPGCF</h5>
-          <p class="small text-muted mb-0">Kelapa Sawit & Komoditi</p>
-        </div>
-      </div>
-
-      <div class="col-6 col-md-4 col-lg-3 fade-in">
-        <div class="client-box p-4 text-center h-100 d-flex flex-column align-items-center justify-content-center shadow-sm rounded-4">
-          <div class="client-logo mb-3 d-flex align-items-center justify-content-center"
-               style="width:150px; height:150px; overflow:hidden; border-radius:25px; background:#fff;">
-            <img src="images/logo_perhilitan2.jpg"
-                 alt="Perhilitan Logo"
-                 style="max-width:100%; max-height:100%; object-fit:contain;">
-          </div>
-          <h5 class="mt-2 mb-1">NWRC</h5>
-          <p class="small text-muted mb-0">Perhilitan</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 text-center mb-5">
+        <!-- ================= Contact ================= -->
+        <section id="contact">
+            <div class="container">
+                <div class="section-head">
+                    <span class="eyebrow">Hubungi</span>
                     <h2 class="section-title">Hubungi Kami</h2>
+                    <p>Ada pertanyaan tentang produk atau servis kami? Kami sedia membantu.</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-5 fade-in">
+                        <div class="contact-card">
+                            <h4 class="mb-4 fw-bold">Maklumat Syarikat</h4>
+                            <div class="contact-item">
+                                <i class="bi bi-geo-alt"></i>
+                                <div><strong>Alamat Utama</strong><span>1558-A Kampung Bayam, Jalan Bayam,<br>15200 Kota Bharu, Kelantan</span></div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-building"></i>
+                                <div><strong>Cawangan</strong><span>A-5-06, Pangsapuri Belimbing Heights,<br>43300 Seri Kembangan, Selangor</span></div>
+                            </div>
+                            <div class="contact-item">
+                                <i class="bi bi-telephone"></i>
+                                <div><strong>Telefon / WhatsApp</strong><a href="tel:+60174511455">+6017-451 1455</a></div>
+                            </div>
+                            <div class="contact-item mb-0">
+                                <i class="bi bi-envelope"></i>
+                                <div><strong>Email</strong><a href="mailto:nikshafik186@gmail.com">nikshafik186@gmail.com</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 fade-in">
+                        <div class="form-card">
+                            <h4 class="mb-4 fw-bold" style="color:var(--primary)">Hantar Mesej</h4>
+                            <form id="contactForm" novalidate>
+                                <div class="row g-3">
+                                    <div class="col-md-6">
+                                        <label class="form-label visually-hidden" for="fName">Nama</label>
+                                        <input type="text" class="form-control" id="fName" name="name" placeholder="Nama" required>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label class="form-label visually-hidden" for="fEmail">Email</label>
+                                        <input type="email" class="form-control" id="fEmail" name="email" placeholder="Email" required>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label visually-hidden" for="fTopic">Perkara</label>
+                                        <select class="form-select" id="fTopic" name="topic">
+                                            <option>Pertanyaan Umum</option>
+                                            <option>Farmguard (Basic / Mini / CCTV)</option>
+                                            <option>FarmSense / IoT</option>
+                                            <option>Sistem Maklumat / Dashboard</option>
+                                            <option>Baik Pulih Website</option>
+                                            <option>Renovasi Rumah</option>
+                                            <option>Chemical Wangian</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-12">
+                                        <label class="form-label visually-hidden" for="fMsg">Mesej</label>
+                                        <textarea class="form-control" id="fMsg" name="message" rows="5" placeholder="Mesej" required></textarea>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn-brand border-0 mt-3">
+                                    <i class="bi bi-whatsapp"></i> Hantar melalui WhatsApp
+                                </button>
+                                <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-lg-6 fade-in">
-                    <h4 class="mb-4">Maklumat Syarikat</h4>
-                    <div class="mb-3">
-                        <i class="bi bi-geo-alt text-primary me-2"></i>
-                        <strong>Alamat Utama:</strong><br>
-                        <span class="ms-4">1558-A Kampung Bayam, Jalan Bayam,<br class="ms-4">15200 Kota Bharu, Kelantan</span>
-                    </div>
-                    <div class="mb-3">
-                        <i class="bi bi-building text-primary me-2"></i>
-                        <strong>Cawangan:</strong><br>
-                        <span class="ms-4">A-5-06, Pangsapuri Belimbing Heights,<br class="ms-4">43300 Seri Kembangan, Selangor</span>
-                    </div>
-                    <div class="mb-3">
-                        <i class="bi bi-telephone text-primary me-2"></i>
-                        <strong>Telefon:</strong> +6017-4511455
-                    </div>
-                    <div class="mb-3">
-                        <i class="bi bi-envelope text-primary me-2"></i>
-                        <strong>Email:</strong> nikshafik186@gmail.com
-                    </div>
-                </div>
-                <div class="col-lg-6 fade-in">
-                    <h4 class="mb-4">Hantar Mesej</h4>
-                    <form>
-                        <div class="mb-3">
-                            <input type="text" class="form-control" placeholder="Nama">
-                        </div>
-                        <div class="mb-3">
-                            <input type="email" class="form-control" placeholder="Email">
-                        </div>
-                        <div class="mb-3">
-                            <textarea class="form-control" rows="4" placeholder="Mesej"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="bi bi-send me-2"></i> Hantar
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Footer -->
+    <!-- ================= Footer ================= -->
     <footer>
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5>Izwan Systec Enterprise</h5>
-                    <p>Pusat Inovasi Teknologi AI dan IoT</p>
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <a class="brand mb-3" href="#home">
+                        <span class="brand-mark"><i class="bi bi-cpu"></i></span>
+                        Izwan Systec
+                    </a>
+                    <p>Pusat Inovasi Teknologi AI dan IoT. Produk keselamatan ladang, sistem maklumat dan servis teknikal.</p>
                 </div>
-                <div class="col-lg-4 mb-4 mb-lg-0">
-                    <h5>Pautan Pantas</h5>
+                <div class="col-6 col-lg-2">
+                    <h5>Pautan</h5>
                     <ul class="list-unstyled">
-                        <li><a href="#home" class="text-white-50">Home</a></li>
-                        <li><a href="#about" class="text-white-50">Tentang</a></li>
-                        <li><a href="#projects" class="text-white-50">Projek</a></li>
-                        <li><a href="#contact" class="text-white-50">Hubungi</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">Tentang</a></li>
+                        <li><a href="#projects">Produk</a></li>
+                        <li><a href="#services">Servis</a></li>
+                        <li><a href="#contact">Hubungi</a></li>
                     </ul>
                 </div>
-                <div class="col-lg-4">
-                    <h5>Media Sosial</h5>
-                    <div class="d-flex gap-3">
-                        <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
-                        <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+                <div class="col-6 col-lg-3">
+                    <h5>Produk &amp; Servis</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#projects">Farmguard</a></li>
+                        <li><a href="#projects">FarmSense</a></li>
+                        <li><a href="#projects">ROAMS</a></li>
+                        <li><a href="#services">Baik Pulih Website</a></li>
+                        <li><a href="#services">Renovasi Rumah</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3">
+                    <h5>Ikuti Kami</h5>
+                    <div class="social d-flex gap-2">
+                        <a href="https://wa.me/60174511455" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
                     </div>
                 </div>
             </div>
-            <hr class="my-4 bg-white">
-            <div class="text-center">
-                <p class="mb-0">&copy; 2024 Izwan Systec Enterprise. No. Pendaftaran: 202103055724</p>
+            <hr class="my-4">
+            <div class="text-center small">
+                &copy; <span id="year">2025</span> Izwan Systec Enterprise. No. Pendaftaran: 202103055724
             </div>
         </div>
     </footer>
 
-    <!-- Scroll Buttons -->
-    <button class="scroll-btn scroll-up" id="scrollUp" onclick="scrollToTop()">
-        <i class="bi bi-arrow-up"></i>
-    </button>
-    <button class="scroll-btn scroll-down" id="scrollDown" onclick="scrollToNext()">
-        <i class="bi bi-arrow-down"></i>
-    </button>
+    <!-- ================= Floating buttons ================= -->
+    <button class="scroll-btn" id="scrollUp" aria-label="Kembali ke atas"><i class="bi bi-arrow-up"></i></button>
+    <a class="wa-btn" href="https://wa.me/60174511455" target="_blank" rel="noopener" aria-label="WhatsApp kami"><i class="bi bi-whatsapp"></i></a>
+
+    <!-- ================= Detail Modal ================= -->
+    <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <img id="detailImg" class="modal-img" src="" alt="" hidden>
+                <div class="modal-header border-0 pb-0">
+                    <h5 class="modal-title fw-bold" id="detailTitle"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="detailBody" class="text-muted mb-0"></p>
+                </div>
+                <div class="modal-footer border-0">
+                    <a id="detailCta" class="btn-brand" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Tanya di WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        // Sidebar Toggle
-        function toggleSidebar() {
-            document.getElementById('sidebar').classList.toggle('active');
-            document.getElementById('overlay').classList.toggle('active');
-        }
-
-        function closeSidebar() {
-            document.getElementById('sidebar').classList.remove('active');
-            document.getElementById('overlay').classList.remove('active');
-        }
-
-        // Scroll Functions
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function scrollToNext() {
-            const sections = document.querySelectorAll('section');
-            const scrollPos = window.scrollY + 100;
-            
-            for (let i = 0; i < sections.length; i++) {
-                if (sections[i].offsetTop > scrollPos) {
-                    sections[i].scrollIntoView({ behavior: 'smooth' });
-                    break;
-                }
-            }
-        }
-
-        // Show/Hide Scroll Up Button
-        window.addEventListener('scroll', function() {
-            const scrollUp = document.getElementById('scrollUp');
-            if (window.scrollY > 300) {
-                scrollUp.classList.add('show');
-            } else {
-                scrollUp.classList.remove('show');
-            }
-
-            // Fade in elements
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
-            });
-        });
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        });
-
-        // Initial fade in check
-        window.dispatchEvent(new Event('scroll'));
-    </script>
+    <script src="js/main.js"></script>
 </body>
 </html>
